@@ -193,31 +193,13 @@ ax.legend()
 st.pyplot(fig, clear_figure=True)
 
 st.subheader("Dispersão (scatter): Real vs Modelo")
-c1, c2, c3 = st.columns(3, gap="large")
 
-with c1:
-    fig, ax = plt.subplots()
-    ax.scatter(x_r_s, x_m_s, s=10)
-    ax.set_xlabel("X_real")
-    ax.set_ylabel("X_modelo")
-    ax.set_title("X")
-    st.pyplot(fig, clear_figure=True)
-
-with c2:
-    fig, ax = plt.subplots()
-    ax.scatter(y_r_s, y_m_s, s=10)
-    ax.set_xlabel("Y_real")
-    ax.set_ylabel("Y_modelo")
-    ax.set_title("Y")
-    st.pyplot(fig, clear_figure=True)
-
-with c3:
-    fig, ax = plt.subplots()
-    ax.scatter(R_real, R_modelo, s=10)
-    ax.set_xlabel("R_real")
-    ax.set_ylabel("R_modelo")
-    ax.set_title("R")
-    st.pyplot(fig, clear_figure=True)
+fig, ax = plt.subplots()
+ax.scatter(R_real, R_modelo, s=10)
+ax.set_xlabel("R_real")
+ax.set_ylabel("R_modelo")
+ax.set_title("R")
+st.pyplot(fig, clear_figure=True)
 
 with st.expander("Exportar resultados (trecho selecionado)"):
     out = pd.DataFrame({
