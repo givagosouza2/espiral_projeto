@@ -143,36 +143,18 @@ m7.metric("MAE(X)", f"{mae_x:.4f}" if np.isfinite(mae_x) else "NaN")
 m8.metric("MAE(Y)", f"{mae_y:.4f}" if np.isfinite(mae_y) else "NaN")
 m9.metric("MAE(E)", f"{mae_e:.4f}" if np.isfinite(mae_e) else "NaN")
 m10.metric("N amostras (trecho)", f"{len(t_s)}")
+c1,c2,c3 = st.columns(3)
 
-    
-st.subheader("Trajeto XY (Real vs Modelo)")
-fig, ax = plt.subplots()
-ax.plot(x_r_s, y_r_s, label="Real")
-ax.plot(x_m_s, y_m_s, label="Modelo")
-ax.set_xlabel("X")
-ax.set_ylabel("Y")
-ax.set_aspect("equal", adjustable="datalim")
-ax.legend()
-st.pyplot(fig, clear_figure=True)
-
-st.subheader("Vetor resultante ao (0,0): R = sqrt(X² + Y²)")
-fig, ax = plt.subplots()
-ax.plot(t_s, R_real, label="R_real")
-ax.plot(t_s, R_modelo, label="R_modelo")
-ax.set_xlabel(t_label)
-ax.set_ylabel("R")
-ax.legend()
-st.pyplot(fig, clear_figure=True)
-
-st.subheader("Erro euclidiano ponto-a-ponto: E(t) = sqrt((Xr-Xm)² + (Yr-Ym)²)")
-fig, ax = plt.subplots()
-ax.plot(t_s, E, label="E(t)")
-ax.set_xlabel(t_label)
-ax.set_ylabel("Erro euclidiano")
-ax.legend()
-st.pyplot(fig, clear_figure=True)
-
-st.subheader("Dispersão (scatter): Real vs Modelo")
+with c3:
+    st.subheader("Trajeto XY (Real vs Modelo)")
+    fig, ax = plt.subplots()
+    ax.plot(x_r_s, y_r_s, label="Real")
+    ax.plot(x_m_s, y_m_s, label="Modelo")
+    ax.set_xlabel("X")
+    ax.set_ylabel("Y")
+    ax.set_aspect("equal", adjustable="datalim")
+    ax.legend()
+    st.pyplot(fig, clear_figure=True)
 
 with st.expander("Exportar resultados (trecho selecionado)"):
     out = pd.DataFrame({
