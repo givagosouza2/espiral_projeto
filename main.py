@@ -143,7 +143,7 @@ m7.metric("MAE(X)", f"{mae_x:.4f}" if np.isfinite(mae_x) else "NaN")
 m8.metric("MAE(Y)", f"{mae_y:.4f}" if np.isfinite(mae_y) else "NaN")
 m9.metric("MAE(E)", f"{mae_e:.4f}" if np.isfinite(mae_e) else "NaN")
 m10.metric("N amostras (trecho)", f"{len(t_s)}")
-c1,c2,c3 = st.columns(3)
+c1,c2,c3 = st.columns([0.2,1,0.2])
 
 with c2:
     st.subheader("Trajeto XY (Real vs Modelo)")
