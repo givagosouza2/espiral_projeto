@@ -145,7 +145,7 @@ m9.metric("MAE(E)", f"{mae_e:.4f}" if np.isfinite(mae_e) else "NaN")
 m10.metric("N amostras (trecho)", f"{len(t_s)}")
 c1,c2,c3 = st.columns(3)
 
-with c3:
+with c2:
     st.subheader("Trajeto XY (Real vs Modelo)")
     fig, ax = plt.subplots()
     ax.plot(x_r_s, y_r_s, label="Real")
